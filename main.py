@@ -28,13 +28,17 @@ async def on_message(message):
         msg = check_online()
         #embedVar.add_field(name="Contents", value=f"{msg}")
         if status.players.online > 0:
+            pl_list = []
             for player in status.players.sample:
-                embedVar.add_field(name="", value=f"The player **%s** is online" % player.name)
+                pl_list.append(str(player.name))
+            list_final = str(pl_list)[1:-1]
+            embedVar.add_field(name="", value=f"Players online: " +list_final)
         else:
             embedVar.add_field(name="", value="The Server has **0** player(s) online")
             
         
       
         await message.reply(embed=embedVar)
+       
 
 bot.run(TOKEN)
