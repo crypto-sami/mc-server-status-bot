@@ -24,12 +24,15 @@ async def on_message(message):
     if message.content == ("?online"):
         server = JavaServer.lookup("mc.sturk.au:25565")
         status=server.status()
-        embedVar=discord.Embed(title="Current Online Players", url="", color=0x00ff00)
+        embedVar=discord.Embed(title="Online Players", url="", color=0x00ff00)
         msg = check_online()
-        embedVar.add_field(name="Contents", value=f"{msg}")
-        for player in status.players.sample:
-            embedVar.add_field(name="Contents", value=f"The player %s is online" % player.name)
-           
+        #embedVar.add_field(name="Contents", value=f"{msg}")
+        if status.players.online > 0:
+            for player in status.players.sample:
+                embedVar.add_field(name="", value=f"The player **%s** is online" % player.name)
+        else:
+            embedVar.add_field(name="", value="The Server has **0** player(s) online")
+            
         
       
         await message.reply(embed=embedVar)
