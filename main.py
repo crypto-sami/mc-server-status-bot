@@ -29,6 +29,7 @@ async def on_message(message):
         #embedVar.add_field(name="Contents", value=f"{msg}")
         if status.players.online > 0:
             pl_list = []
+            embedVar.set_footer(text="Made by Sami")
             for player in status.players.sample:
                 pl_list.append(str(player.name))
             list_final = ", ".join(pl_list)
