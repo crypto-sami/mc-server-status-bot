@@ -25,7 +25,7 @@ async def on_message(message):
         server = JavaServer.lookup("mc.sturk.au:25565")
         status=server.status()
         embedVar=discord.Embed(title="Online Players", url="", color=0x00ff00)
-        embedVar.set_footer(text="Made by Sami")
+        
         msg = check_online()
         #embedVar.add_field(name="Contents", value=f"{msg}")
         if status.players.online > 0:
