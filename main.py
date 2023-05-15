@@ -32,7 +32,7 @@ async def on_message(message):
             for player in status.players.sample:
                 pl_list.append(str(player.name))
             list_final = ", ".join(pl_list)
-            embedVar.add_field(name="", value=f"Players online: " +list_final)
+            embedVar.add_field(name="", value=f"Players online: " +f"**{list_final}**")
         else:
             embedVar.add_field(name="", value="The Server has **0** player(s) online")
             
